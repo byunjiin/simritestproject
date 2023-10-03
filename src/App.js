@@ -1,25 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Header from './components/Header';
+// import Nav from './components/Nav';
+import Main from './components/Main';
+import Footer from './components/Footer';
+import Login from './components/Login';
+import Mypage from './components/Mypage';
+import Test from './components/Test';
+import Play from './components/Play';
+import Make from './components/Make';
+import styled from 'styled-components';
+import { Route, Routes } from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const AppStyle = styled.div `
+  height: 100vh;
+  background : #eef2ff;
+`;
+
+const MainContent = styled.div `
+  height: 100vh;
+`
+
+const App=()=>{
+  return(
+    <>
+      <AppStyle>
+        <Header/>
+        {/* <Nav/> */}
+        {/* 메인부분 변화하는 페이지 */}
+        <MainContent>
+        <Routes>
+          <Route path="/" element={<Main/>}/>
+          <Route path="/Login" element={<Login/>}/>
+          <Route path="/Mypage" element={<Mypage/>}/>
+          <Route path="/Test" element={<Test/>}/>
+          <Route path="/Play" element={<Play/>}/>
+          <Route path="/Make" element={<Make/>}/>
+        </Routes>
+        </MainContent>
+        <Footer/>
+      </AppStyle>
+    </>
+  )
 }
 
 export default App;
