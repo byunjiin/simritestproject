@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Main from './components/Main';
 import Footer from './components/Footer';
 import Login from './components/Login';
+import Join from './components/Join';
 import Mypage from './components/Mypage';
 import Test from './components/Test';
 import Play from './components/Play';
@@ -31,6 +32,7 @@ const App=()=>{
         <Routes>
           <Route path="/" element={<Main/>}/>
           <Route path="/Login" element={<Login/>}/>
+          <Route path="/Join" element={<Join/>}/>
           <Route path="/Mypage" element={<Mypage/>}/>
           <Route path="/Test" element={<Test/>}/>
           <Route path="/Play" element={<Play/>}/>

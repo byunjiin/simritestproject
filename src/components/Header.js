@@ -40,9 +40,9 @@ const Header=()=>{
           <Link to="/"><img src="./images/logo.png"/></Link>
           </div>
           <ul>
-            <Link to="/Login"><li>LOGIN</li>|</Link>
-            <Link to="/Mypage"><li>MY PAGE</li>|</Link>
-            <Link to="/Test"><li>TEST</li></Link>
+            <Link to="/Login"><li id='login'>LOGIN</li>|</Link>
+            <Link to="/Mypage"><li id='mypage'>MY PAGE</li>|</Link>
+            <Link to="/Test"><li id='test'>TEST</li></Link>
           </ul>
         </div>
       </HeaderStyle>
