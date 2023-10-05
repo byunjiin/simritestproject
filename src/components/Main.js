@@ -11,7 +11,11 @@ const MainStyle = styled.div `
 `;
 const Main= () => {
   return(
-    <div>a</div>
+    <MainStyle>
+    <div id='imgslide'>
+      이미지와 심테링크
+    </div>
+    </MainStyle>
   )
 }
 

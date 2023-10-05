@@ -13,12 +13,11 @@ import styled from 'styled-components';
 import { Route, Routes } from "react-router-dom";
 
 const AppStyle = styled.div `
-  height: 100vh;
-  background : #eef2ff;
 `;
 
 const MainContent = styled.div `
   height: 100vh;
+  background : #eef2ff;
 `
 
 const App=()=>{
