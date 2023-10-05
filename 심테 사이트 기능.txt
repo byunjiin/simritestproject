@@ -1,0 +1,85 @@
+심테 사이트 만드는데 사용한 기능
+
+-----------------------------------------------
+1.리액트에 이모티콘 넣는방법(footer에 사용)
+
+리액트 아이콘 (https://react-icons.github.io/react-icons/#/ )
+
+1)cmd창에 설치하기
+npm install react-icons --save
+npm install @react-icons/all-files --save
+
+2)vs코드에 import
+만약 AifillGithub라는 이모티콘을 사용할 시
+import { AiFillGithub } from "react-icons/ai";
+
+3)사용하고자 하는 곳에 넣기
+<AiFillGithub className='icons'/>
+
+-----------------------------------------------
+2.이미지 슬라이더(main에 사용)
+
+Carousel 사용 ( https://prmblogs.tistory.com/entry/ReactJS-Carousel-%EB%A6%AC%EC%95%A1%ED%8A%B8-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%97%90%EC%84%9C-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%8A%AC%EB%9D%BC%EC%9D%B4%EB%93%9C-%EB%A7%8C%EB%93%A4%EA%B8%B0 )
+
+Carousel은 다양한 기능과 설정을 제공하여 사용자 정의가 가능합니다. 몇 초마다 자동으로 슬라이드가 전환되도록 타이머를 설정하거나, 드래그나 스와이프 동작으로 슬라이드를 이동할 수 있는 기능을 추가할 수도 있습니다. 또한, 애니메이션 효과나 전환 속도 등의 스타일을 변경하여 사용자 경험을 개선할 수도 있습니다
+
+1)cmd창에 설치
+npm i react-responsive-carousel
+
+2)이미지 데이터 파일 만들기(js파일)
+const imageData = [
+  {
+    label: "Image 1",
+    alt: "image1",
+    url: "https://picsum.photos/200/300",
+  }, //반복
+];
+export default imageData;
+
+3)vs코드에 import
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from "react-responsive-carousel";
+import imageData from "만든js파일저장위치";
+
+4)반복문 만들기
+const renderSlides = imageData.map(image => ( //map은 배열내부를 반복
+    <div key={image.alt}>
+      <img src={image.url} alt={image.alt} />
+  </div>
+));​
+
+5)useState() 이용
+ const [currentIndex, setCurrentIndex] = useState();
+  function handleChange(index) {
+    setCurrentIndex(index);
+  }
+
+useState()는 [요소1,요소2]에서 요소2가 요소1이 되게함
+괄호안엔 초기값
+
+6)return안에 Carousel지정하기
+<Carousel
+          showArrows={false} //화살표
+          autoPlay={true} //자동넘어가는시간(기본3초)
+          infiniteLoop={true} //무한루프(1~4->1)
+          showThumbs={false} //미리보기 썸네일
+	  showIndicators = {true} //동그라미
+          showStatus = {false} //상태표시(1of4)
+          selectedItem={imageData[currentIndex]} //선택되는 결과
+          onChange={handleChange} 
+	  className="w-[400px] lg:hidden" //크기넘으면 숨기기
+>
+          {renderSlides} //반복문실행(숫자가 오름)
+</Carousel>
+
+실행되는 순서
+①6번의 onChange={handleChange}
+②5번의 function handleChange(index)
+③5번의 setCurrentIndex(index)
+④5번의 const [currentIndex, setCurrentIndex] = useState(); 의 setCurrentIndex
+⑤5번의 const [currentIndex, setCurrentIndex] = useState(); 의 currentIndex
+⑥6번의 selectedItem={imageData[currentIndex]}
+⑦6번의 {renderSlides}
+⑧4번의 const renderSlides
+
+-----------------------------------------------
