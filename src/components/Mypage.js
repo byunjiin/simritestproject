@@ -33,6 +33,7 @@ const MypageStyle = styled.div `
     position: absolute;
     top:50%;
     left: 70%;
+    border-radius: 20%;
   }
 `;
 const Mypage= () => {
