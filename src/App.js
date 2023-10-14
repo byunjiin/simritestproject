@@ -9,6 +9,8 @@ import Mypage from './components/Mypage';
 import Test from './components/Test';
 import Play from './components/Play';
 import Make from './components/Make';
+import Simri from './components/Simri';
+import Recode from './components/Recode';
 import styled from 'styled-components';
 import { Route, Routes } from "react-router-dom";
 
@@ -36,6 +38,8 @@ const App=()=>{
           <Route path="/Test" element={<Test/>}/>
           <Route path="/Play" element={<Play/>}/>
           <Route path="/Make" element={<Make/>}/>
+          <Route path="/Simri" element={<Simri/>}/>
+          <Route path="/Recode" element={<Recode/>}/>
         </Routes>
         </MainContent>
         <Footer/>
